@@ -352,8 +352,26 @@ mark:last-child { background: #a6dbb5; color: #08732e; }
 .problem-card h4 { margin: 0; font-size: 24px; line-height: 1.05; font-weight: 700; letter-spacing: -.035em; }
 .problem-card p { margin: var(--space-16) 0 0; max-width: 300px; font-size: 16px; line-height: 1.18; font-weight: 400; letter-spacing: -.02em; }
 
-.section-two-statement { grid-column: 1 / span 6; margin: 1.35rem 0 4rem; font-size: 24px; line-height: 1.08; }
-.logo-ribbon { width: 100vw; margin-left: calc(50% - 50vw); overflow: hidden; padding: 3rem 0 1.65rem; }
+.section-two-statement { grid-column: 1 / span 5; margin: clamp(4rem, 7vw, 6.5rem) 0 0; font-size: 24px; line-height: 1.08; }
+.identity-cta {
+  grid-column: 7 / -1;
+  align-self: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  color: var(--blue);
+  font-size: clamp(36px, 3vw, 52px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  text-decoration: none;
+  margin-top: clamp(4rem, 7vw, 6.5rem);
+}
+.identity-cta > span { white-space: nowrap; }
+.identity-cta img { width: clamp(42px, 3.2vw, 58px); height: auto; display: block; transition: transform .3s cubic-bezier(.2, .8, .2, 1); }
+.identity-cta:hover img, .identity-cta:focus-visible img { transform: translate3d(5px, -5px, 0); }
+.logo-ribbon { width: 100vw; margin-left: calc(50% - 50vw); overflow: hidden; padding: clamp(4.5rem, 7vw, 6.5rem) 0 1.65rem; }
 .logo-ribbon-track { display: flex; width: max-content; animation: logo-ribbon-scroll 40s linear infinite paused; will-change: transform; }
 .section-two.is-visible .logo-ribbon-track { animation-play-state: running; }
 .logo-ribbon-set { min-width: 100vw; display: flex; align-items: center; justify-content: space-between; gap: 3rem; padding-right: 3rem; }
@@ -442,7 +460,7 @@ mark:last-child { background: #a6dbb5; color: #08732e; }
   .section-two-intro h2 { font-size: 32px; }.section-two-intro p { font-size: 16px; }
   .brand-grid-image { width: 100%; }.familiar-title { align-self: stretch; margin-top: 48px; font-size: 32px; text-align: left; }
   .problem-cards { grid-template-columns: 1fr; gap: 12px; }.problem-card { width: 100%; height: 399px; }
-  .section-two-statement { margin: 1rem 0 0; font-size: 24px; }.logo-ribbon { padding-inline: 0; }.logo-ribbon-set { gap: 1.75rem; padding-right: 1.75rem; }.logo-ribbon img { width: 132px; }
+  .section-two-statement { margin: 3rem 0 0; font-size: 24px; }.identity-cta { width: 100%; align-self: flex-start; margin-top: 2rem; font-size: 42px; }.logo-ribbon { padding-top: 4rem; padding-inline: 0; }.logo-ribbon-set { gap: 1.75rem; padding-right: 1.75rem; }.logo-ribbon img { width: 132px; }
   .section-three { padding-inline: 1.25rem; }.section-three-grid { display: flex; flex-direction: column; gap: 3rem; }
   .lab-image { width: 100%; }.service-cards { grid-template-columns: 1fr; gap: var(--space-24); }.service-card > div { min-height: 190px; padding-inline: var(--space-24); }.lab-cta { align-self: center; }
   .pre-footer-shapes { min-height: 320px; height: 78vw; }.geometry-green { left: -14%; }.geometry-blue { left: 18%; }.geometry-red { left: 52%; }.geometry-yellow { left: 80%; }
