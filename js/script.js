@@ -34,6 +34,18 @@ if (title && !reduceMotion) {
     line.replaceChildren(fragment);
   });
 
+  let touchLetterTimer;
+  title.addEventListener('pointerdown', (event) => {
+    if (event.pointerType !== 'touch') return;
+    const glyph = event.target.closest('.putty-letter');
+    if (!glyph) return;
+
+    letters.forEach(({ drift }) => drift.parentElement.classList.remove('is-active'));
+    glyph.classList.add('is-active');
+    clearTimeout(touchLetterTimer);
+    touchLetterTimer = window.setTimeout(() => glyph.classList.remove('is-active'), 750);
+  }, { passive: true });
+
   let rawX = 0;
   let rawY = 0;
   let frame;
