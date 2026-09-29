@@ -111,3 +111,42 @@ if (sectionTwo && 'IntersectionObserver' in window) {
 
   sectionObserver.observe(sectionTwo);
 }
+
+const kromContact = document.querySelector('.krom-contact');
+if (kromContact) {
+  const contactTrigger = kromContact.querySelector('.krom-contact-trigger');
+  const contactPanel = kromContact.querySelector('.krom-contact-panel');
+  let contrastFrame;
+
+  const updateKromContrast = () => {
+    contrastFrame = undefined;
+    const bounds = contactTrigger.getBoundingClientRect();
+    const elements = document.elementsFromPoint(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
+    const isOverDark = elements.some((element) => element !== contactTrigger && !contactTrigger.contains(element) && element.closest?.('.section-two'));
+    kromContact.classList.toggle('is-over-dark', isOverDark);
+  };
+  const requestKromContrast = () => {
+    if (!contrastFrame) contrastFrame = requestAnimationFrame(updateKromContrast);
+  };
+  const closeKromContact = () => {
+    kromContact.classList.remove('is-open');
+    contactTrigger.setAttribute('aria-expanded', 'false');
+    contactPanel.setAttribute('aria-hidden', 'true');
+  };
+
+  contactTrigger.addEventListener('click', () => {
+    const isOpen = kromContact.classList.toggle('is-open');
+    contactTrigger.setAttribute('aria-expanded', String(isOpen));
+    contactPanel.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!kromContact.contains(event.target)) closeKromContact();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeKromContact();
+  });
+  window.addEventListener('scroll', requestKromContrast, { passive: true });
+  window.addEventListener('resize', requestKromContrast, { passive: true });
+  requestKromContrast();
+}
