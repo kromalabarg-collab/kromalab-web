@@ -1,0 +1,80 @@
+:root {
+  --project-label-size: 16px;
+  --project-title-size: 28px;
+  --project-body-size: 16px;
+  --project-lead-size: 20px;
+  --project-tag-size: 14px;
+  --project-tag-height: 36px;
+}
+
+.scroll-reveal {
+  transition: opacity .8s cubic-bezier(.19, 1, .22, 1) var(--reveal-delay, 0ms), transform .8s cubic-bezier(.19, 1, .22, 1) var(--reveal-delay, 0ms);
+}
+
+.motion-ready .scroll-reveal { opacity: 0; transform: translate3d(0, 32px, 0); }
+.motion-ready .scroll-reveal.scroll-reveal-scale { transform: translate3d(0, 32px, 0) scale(.97); }
+.motion-ready .scroll-reveal.is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+
+.back-link,
+.plaza-back { font-size: var(--project-label-size); }
+
+.project-client,
+.plaza-client { font-size: var(--project-label-size); }
+
+.section-eyebrow { font-size: var(--project-label-size); }
+
+.project-summary h1,
+.plaza-summary h1 {
+  font-size: var(--project-title-size);
+  line-height: 1.12;
+  letter-spacing: -.045em;
+}
+
+.project-description,
+.project-site,
+.plaza-description,
+.plaza-site { font-size: var(--project-body-size); }
+
+.project-tags li,
+.plaza-tags li {
+  display: grid;
+  min-height: var(--project-tag-height);
+  place-items: center;
+  padding: 8px 19px;
+  font-size: var(--project-tag-size);
+}
+
+.solution-section h2,
+.plaza-solution h2,
+.brand-section h2 {
+  font-size: var(--project-title-size);
+  line-height: 1.12;
+  letter-spacing: -.045em;
+}
+
+.solution-copy,
+.plaza-solution > p {
+  font-size: var(--project-lead-size);
+  line-height: 1.2;
+  letter-spacing: -.035em;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --project-label-size: 14px;
+    --project-title-size: 23px;
+    --project-body-size: 14px;
+    --project-lead-size: 18px;
+    --project-tag-size: 12px;
+    --project-tag-height: 32px;
+  }
+
+  .project-tags li,
+  .plaza-tags li { padding: 8px 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal { transition: none !important; }
+  .motion-ready .scroll-reveal,
+  .motion-ready .scroll-reveal.scroll-reveal-scale { opacity: 1; transform: none; }
+}

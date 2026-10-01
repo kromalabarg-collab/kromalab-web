@@ -112,6 +112,94 @@ if (sectionTwo && 'IntersectionObserver' in window) {
   sectionObserver.observe(sectionTwo);
 }
 
+const kromMotion = document.querySelector('.krom-motion');
+if (kromMotion && !reduceMotion) {
+  const motionObserver = new IntersectionObserver((entries, observer) => {
+    if (!entries[0].isIntersecting) return;
+    kromMotion.classList.add('is-visible');
+    observer.disconnect();
+  }, { threshold: .28 });
+
+  motionObserver.observe(kromMotion);
+} else if (kromMotion) {
+  kromMotion.classList.add('is-visible');
+}
+
+const serviceExplorer = document.querySelector('[data-service-explorer]');
+if (serviceExplorer) {
+  const services = {
+    app: {
+      label: 'Kroma App',
+      title: 'Una app completa,<br>con todo conectado.',
+      description: 'Para convertir una idea en un producto digital útil, claro y listo para crecer.',
+      features: [
+        'Flujos y pantallas pensados de punta a punta.',
+        'Desarrollo de webapps y productos completos.',
+        'Una experiencia que se ve bien y funciona mejor.',
+      ],
+      badge: 'APP',
+      cta: 'Quiero crear mi app',
+      href: 'https://wa.me/5491172370403?text=Hola%20Kroma%2C%20quiero%20crear%20una%20app.',
+      tabId: 'kroma-app-tab',
+    },
+    design: {
+      label: 'Kroma Design',
+      title: 'Una web que se siente<br>como tu marca.',
+      description: 'Para crear una presencia digital distinta, desde la idea visual hasta la página lista para mostrar.',
+      features: [
+        'Dirección visual y UX/UI con identidad propia.',
+        'Páginas web pensadas para comunicar y convertir.',
+        'Diseño y desarrollo frontend en una sola experiencia.',
+      ],
+      badge: 'WEB',
+      cta: 'Quiero crear mi web',
+      href: 'https://wa.me/5491172370403?text=Hola%20Kroma%2C%20quiero%20crear%20una%20web.',
+      tabId: 'kroma-design-tab',
+    },
+  };
+
+  const selectors = serviceExplorer.querySelectorAll('button[data-service]');
+  const tabs = serviceExplorer.querySelectorAll('.service-switch');
+  const panel = serviceExplorer.querySelector('.service-preview');
+  const label = serviceExplorer.querySelector('[data-service-label]');
+  const title = serviceExplorer.querySelector('[data-service-title]');
+  const description = serviceExplorer.querySelector('[data-service-description]');
+  const features = serviceExplorer.querySelector('[data-service-features]');
+  const badge = serviceExplorer.querySelector('[data-service-badge]');
+  const cta = serviceExplorer.querySelector('[data-service-cta]');
+  const ctaLabel = serviceExplorer.querySelector('[data-service-cta-label]');
+
+  const selectService = (serviceName) => {
+    const service = services[serviceName];
+    if (!service) return;
+
+    selectors.forEach((control) => control.classList.toggle('is-active', control.dataset.service === serviceName));
+    tabs.forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.service === serviceName)));
+    panel.setAttribute('aria-labelledby', service.tabId);
+    panel.dataset.service = serviceName;
+    label.textContent = service.label;
+    title.innerHTML = service.title;
+    description.textContent = service.description;
+    badge.textContent = service.badge;
+    cta.href = service.href;
+    ctaLabel.textContent = service.cta;
+    features.replaceChildren(...service.features.map((feature) => {
+      const item = document.createElement('li');
+      item.textContent = feature;
+      return item;
+    }));
+  };
+
+  selectors.forEach((control) => control.addEventListener('click', () => selectService(control.dataset.service)));
+  tabs.forEach((tab, index) => tab.addEventListener('keydown', (event) => {
+    if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    const nextTab = tabs[(index + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+    nextTab.focus();
+    selectService(nextTab.dataset.service);
+  }));
+}
+
 const kromContact = document.querySelector('.krom-contact');
 if (kromContact) {
   const contactTrigger = kromContact.querySelector('.krom-contact-trigger');
@@ -150,3 +238,28 @@ if (kromContact) {
   window.addEventListener('resize', requestKromContrast, { passive: true });
   requestKromContrast();
 }
+
+document.querySelectorAll('[data-project-menu]').forEach((menu) => {
+  const trigger = menu.querySelector('.projects-menu-trigger');
+  const panel = menu.querySelector('.projects-menu-panel');
+  if (!trigger || !panel) return;
+
+  const closeMenu = () => {
+    menu.classList.remove('is-open');
+    trigger.setAttribute('aria-expanded', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+  };
+
+  trigger.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('is-open');
+    trigger.setAttribute('aria-expanded', String(isOpen));
+    panel.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!menu.contains(event.target)) closeMenu();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+});

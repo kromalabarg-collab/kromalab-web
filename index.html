@@ -1,14 +1,46 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Kroma Lab — Diseño web para marcas diferentes." />
-    <title>Kroma Lab — Tu marca diferente</title>
+    <meta name="description" content="Kroma Lab diseña webs, UX/UI y productos digitales a medida para marcas que quieren dejar atrás lo convencional y verse diferentes." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f3efea" />
+    <meta name="application-name" content="Kroma Lab" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kroma Lab" />
+    <meta property="og:title" content="Kroma Lab | Diseño web, UX/UI y apps para marcas diferentes" />
+    <meta property="og:description" content="Diseñamos experiencias digitales con identidad propia para marcas que dejan atrás lo convencional." />
+    <title>Kroma Lab | Diseño web, UX/UI y apps para marcas diferentes</title>
+    <link rel="icon" href="assets/logos/logo-letra-k.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css?v=projects" />
+    <link rel="stylesheet" href="css/project-navigation.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "#kroma-lab",
+            "name": "Kroma Lab",
+            "description": "Estudio de diseño web, UX/UI y productos digitales a medida para marcas diferentes.",
+            "sameAs": ["https://www.instagram.com/kromalab.arg/"]
+          },
+          {
+            "@type": "WebPage",
+            "name": "Kroma Lab | Diseño web, UX/UI y apps para marcas diferentes",
+            "description": "Diseño web, UX/UI y productos digitales a medida para dejar atrás lo convencional.",
+            "inLanguage": "es-AR",
+            "about": ["Diseño web", "UX/UI", "Desarrollo de aplicaciones", "Productos digitales"],
+            "publisher": { "@id": "#kroma-lab" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <main class="hero" id="inicio">
@@ -16,7 +48,20 @@
         <a class="brand" href="#inicio" aria-label="Kroma Lab, inicio">
           <img src="assets/logos/logo-kroma-color.svg" alt="Kroma Lab" />
         </a>
-        <nav class="social-links" aria-label="Redes sociales">
+        <nav class="site-navigation" aria-label="Navegación principal">
+          <a class="site-navigation-home" href="#inicio">Inicio</a>
+          <div class="projects-menu" data-project-menu>
+            <button class="projects-menu-trigger" type="button" aria-expanded="false" aria-controls="projects-menu-index">
+              Trabajos <span aria-hidden="true">▾</span>
+            </button>
+            <div class="projects-menu-panel" id="projects-menu-index" aria-hidden="true">
+              <strong>Trabajos realizados</strong>
+              <a class="projects-menu-option" href="qeiax/"><span>Qeiax</span><small>App y administración</small></a>
+              <a class="projects-menu-option" href="plazadigital/"><span>Plaza Digital</span><small>Turnos y panel de gestión</small></a>
+            </div>
+          </div>
+        </nav>
+        <nav class="social-links header-social-links" aria-label="Redes sociales">
           <a href="https://wa.me/5491172370403" target="_blank" rel="noreferrer" aria-label="WhatsApp">
             <img src="assets/icono-redes-sociales/whatsapp.svg" alt="" />
           </a>
@@ -31,7 +76,7 @@
           <span>Tu marca</span>
           <span>diferente</span>
         </h1>
-        <p class="intro">Diseño web para <mark>marcas</mark> que quieren verse <mark>diferentes</mark></p>
+        <p class="intro">Diseño web, UX/UI y apps para <mark>marcas</mark> que quieren dejar atrás lo convencional y verse <mark>diferentes</mark></p>
         <a class="projects-button" href="#proyectos">
           <span class="button-label">Ver proyectos</span>
           <span class="button-blob" aria-hidden="true"></span>
@@ -50,6 +95,35 @@
         <div class="ticker ticker-main">
           <div class="ticker-track">
             <span>Diferenciar tu marca <i>—</i> Apps <i>—</i> Webs <i>—</i> Webapps <i>—</i> Websites <i>—</i> UI/UX</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="krom-motion" aria-labelledby="krom-motion-title">
+        <div class="krom-motion-inner">
+          <div class="krom-motion-copy">
+            <p class="krom-motion-kicker">KROMA LAB</p>
+            <h2 id="krom-motion-title">Diseño +<br>desarrollo</h2>
+            <p>Las buenas ideas se vuelven experiencias cuando cada parte encuentra su lugar.</p>
+          </div>
+
+          <div class="krom-motion-stage" aria-label="Personajes de diseño y desarrollo crean juntos">
+            <span class="krom-motion-splash krom-motion-splash--blue" aria-hidden="true"></span>
+            <span class="krom-motion-splash krom-motion-splash--green" aria-hidden="true"></span>
+            <span class="krom-motion-orbit krom-motion-orbit--one" aria-hidden="true"></span>
+            <span class="krom-motion-orbit krom-motion-orbit--two" aria-hidden="true"></span>
+            <span class="krom-motion-spark krom-motion-spark--one" aria-hidden="true">✦</span>
+            <span class="krom-motion-spark krom-motion-spark--two" aria-hidden="true">✦</span>
+
+            <div class="krom-motion-character krom-motion-character--design">
+              <img src="assets/krom-motion/krom-disenio.svg" alt="Personaje de Kroma Diseño">
+            </div>
+            <div class="krom-motion-core" aria-hidden="true">
+              <span>+</span>
+            </div>
+            <div class="krom-motion-character krom-motion-character--dev">
+              <img src="assets/krom-motion/krom-desarrollo.svg" alt="Personaje de Kroma Desarrollo">
+            </div>
           </div>
         </div>
       </section>
@@ -122,35 +196,94 @@
         </div>
       </section>
 
-      <section class="section-three" id="laboratorio" aria-labelledby="section-three-title">
+      <section class="section-three" id="servicios" aria-labelledby="services-title">
         <div class="section-three-grid">
-          <div class="section-three-copy scroll-reveal">
-            <h2 id="section-three-title">EL LABORATORIO</h2>
-            <p>Nuestro laboratorio combina estrategia y tecnología para construir la solución adecuada para cada proyecto.</p>
-          </div>
-          <img class="lab-image scroll-reveal scroll-reveal-scale" style="--reveal-delay: 120ms" src="assets/seccion3/lab.webp" alt="Universo visual de Kroma Lab">
-
-          <div class="service-cards">
-            <article class="service-card scroll-reveal" style="--reveal-delay: 80ms">
-              <img src="assets/seccion3/KromaApp.webp" alt="Kroma App">
-              <div>
-                <h3>Kroma App</h3>
-                <p>Diseñamos y desarrollamos aplicaciones web completas, pensadas tanto en cómo se ven como en cómo funcionan.</p>
+          <div class="service-explorer scroll-reveal" style="--reveal-delay: 100ms" data-service-explorer>
+            <div class="service-explorer-choice">
+              <p class="service-explorer-kicker">ELEGÍ TU SERVICIO</p>
+              <h3 id="services-title">Elegí un Krom<br>y mirá qué puede crear.</h3>
+              <div class="service-switches" role="tablist" aria-label="Servicios de Kroma Lab">
+                <button class="service-switch is-active" type="button" role="tab" id="kroma-app-tab" aria-selected="true" aria-controls="kroma-service-panel" data-service="app">
+                  <span>Kroma App</span>
+                  <small>Apps y productos digitales</small>
+                </button>
+                <button class="service-switch" type="button" role="tab" id="kroma-design-tab" aria-selected="false" aria-controls="kroma-service-panel" data-service="design">
+                  <span>Kroma Design</span>
+                  <small>Webs con identidad propia</small>
+                </button>
               </div>
-            </article>
-            <article class="service-card scroll-reveal" style="--reveal-delay: 180ms">
-              <img src="assets/seccion3/KromaDesign.webp" alt="Kroma Design">
-              <div>
-                <h3>Kroma Design</h3>
-                <p>Diseñamos y desarrollamos páginas web desde cero, combinando una dirección visual propia con UX/UI y desarrollo frontend.</p>
+            </div>
+
+            <div class="service-preview" id="kroma-service-panel" role="tabpanel" aria-labelledby="kroma-app-tab" aria-live="polite">
+              <div class="service-preview-stage">
+                <span class="service-preview-orbit" aria-hidden="true"></span>
+                <span class="service-preview-shape service-preview-shape--blue" aria-hidden="true"></span>
+                <span class="service-preview-shape service-preview-shape--green" aria-hidden="true"></span>
+                <button class="service-krom service-krom--dev is-active" type="button" data-service="app" aria-label="Elegir Kroma App">
+                  <img src="assets/krom-motion/krom-desarrollo.svg" alt="Krom Desarrollo">
+                </button>
+                <button class="service-krom service-krom--design" type="button" data-service="design" aria-label="Elegir Kroma Design">
+                  <img src="assets/krom-motion/krom-disenio.svg" alt="Krom Diseño">
+                </button>
+                <span class="service-preview-badge" data-service-badge>APP</span>
               </div>
-            </article>
+
+              <div class="service-preview-copy">
+                <p class="service-preview-label" data-service-label>Kroma App</p>
+                <h3 data-service-title>Una app completa,<br>con todo conectado.</h3>
+                <p data-service-description>Para convertir una idea en un producto digital útil, claro y listo para crecer.</p>
+                <ul data-service-features>
+                  <li>Flujos y pantallas pensados de punta a punta.</li>
+                  <li>Desarrollo de webapps y productos completos.</li>
+                  <li>Una experiencia que se ve bien y funciona mejor.</li>
+                </ul>
+                <a class="service-preview-cta" data-service-cta href="https://wa.me/5491172370403?text=Hola%20Kroma%2C%20quiero%20crear%20una%20app." target="_blank" rel="noreferrer">
+                  <span data-service-cta-label>Quiero crear mi app</span>
+                  <img src="assets/seccion2/flecha.svg" alt="" aria-hidden="true">
+                </a>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured-projects" id="trabajos" aria-labelledby="featured-projects-title">
+        <div class="featured-projects-inner">
+          <div class="featured-projects-heading scroll-reveal">
+            <p>TRABAJOS REALIZADOS</p>
+            <h2 id="featured-projects-title">Proyectos que ya<br>se sienten diferentes.</h2>
+            <span>Experiencias digitales, una identidad propia.</span>
           </div>
 
-          <a class="projects-button lab-cta scroll-reveal" style="--reveal-delay: 230ms" href="https://wa.me/5491172370403" target="_blank" rel="noreferrer">
-            <span class="button-label">Iniciar proyecto <img src="assets/seccion3/icono-whatsapp.svg" alt=""></span>
-            <span class="button-blob" aria-hidden="true"></span>
-          </a>
+          <div class="featured-projects-grid">
+            <article class="featured-project featured-project--qeiax scroll-reveal scroll-reveal-scale">
+              <a href="qeiax/">
+                <div class="featured-project-media">
+                  <img src="assets/proyectos/qeiax/qeiax_proyecto.webp" alt="Aplicación y panel de administración de Qeiax">
+                  <span>APP + ADMINISTRACIÓN</span>
+                </div>
+                <div class="featured-project-copy">
+                  <p>Qeiax</p>
+                  <h3>Una plataforma para conectar, gestionar y crecer.</h3>
+                  <span class="featured-project-link">Ver proyecto <b aria-hidden="true">↗</b></span>
+                </div>
+              </a>
+            </article>
+
+            <article class="featured-project featured-project--plaza scroll-reveal scroll-reveal-scale" style="--reveal-delay: 140ms">
+              <a href="plazadigital/">
+                <div class="featured-project-media">
+                  <img src="assets/proyectos/plazadigital/portada.webp" alt="Aplicación de turnos de Plaza Digital">
+                  <span>WEBAPP + TURNOS</span>
+                </div>
+                <div class="featured-project-copy">
+                  <p>Plaza Digital</p>
+                  <h3>Una experiencia para que el juego tenga su propio lugar.</h3>
+                  <span class="featured-project-link">Ver proyecto <b aria-hidden="true">↗</b></span>
+                </div>
+              </a>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -165,7 +298,8 @@
         <nav class="footer-nav scroll-reveal" aria-label="Navegación del pie de página">
           <a href="#marcas">Marcas</a>
           <a href="#identidad">Identidad</a>
-          <a href="#laboratorio">Laboratorio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#trabajos">Proyectos</a>
         </nav>
         <img class="footer-logo scroll-reveal" style="--reveal-delay: 120ms" src="assets/seccion3/logo-kroma-negro.svg" alt="Kroma Lab">
       </footer>
