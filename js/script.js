@@ -263,3 +263,31 @@ document.querySelectorAll('[data-project-menu]').forEach((menu) => {
     if (event.key === 'Escape') closeMenu();
   });
 });
+
+document.querySelectorAll('[data-mobile-menu-toggle]').forEach((toggle) => {
+  const header = toggle.closest('header');
+  const navigation = header?.querySelector('.site-navigation');
+  if (!header || !navigation) return;
+
+  const closeMobileMenu = () => {
+    header.classList.remove('is-mobile-menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menú');
+    navigation.querySelectorAll('[data-project-menu]').forEach((menu) => {
+      menu.classList.remove('is-open');
+      menu.querySelector('.projects-menu-trigger')?.setAttribute('aria-expanded', 'false');
+      menu.querySelector('.projects-menu-panel')?.setAttribute('aria-hidden', 'true');
+    });
+  };
+
+  toggle.addEventListener('click', () => {
+    const isOpen = header.classList.toggle('is-mobile-menu-open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+  });
+
+  navigation.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileMenu));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMobileMenu();
+  });
+});
